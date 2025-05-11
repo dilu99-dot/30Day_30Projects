@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Pw Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="box">
+      <h1 class="gnt">Generate a</h1>
+      <h1 class="rnd">Random Password</h1>
+      <input type="text" id="password" class="input" placeholder="Generated Password" readonly>
+      <button id="generate" class="btn"><img src="images/generate.png"> Generate Password</button>
+    </div>
+  </div>
+  <script>
+    const generateButton = document.getElementById('generate');
+    const passwordInput = document.getElementById('password');
+
+    generateButton.addEventListener('click', () => {
+      const length = 12;
+      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+      let password = "";
+
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+      }
+
+      passwordInput.value = password;
+    });
+  </script>
+</body>
+</html>
